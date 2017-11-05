@@ -73,6 +73,7 @@
  - [Nicolas Takashi](http://ntakashi.net/)
  - [Balta.io](http://balta.io/)
  - [Eduardo Pires](http://www.eduardopires.net.br/)
+ - [Elemar Jr.](http://www.elemarjr.com/pt/)
  - [Concrete](https://www.concrete.com.br/2011/07/21/bem-vindo-ao-blog-da-concretesolutions/)
 
 ### Youtube
