@@ -9,7 +9,7 @@ Desenvolvimento de projeto utilizando o ASP.NET Core MVC.
 - Atualizar perfil no Training Center
 - Navegar entre os links disponibilizados em relação a Pessoas, Comunidades e Canais de Comunicação na área
 
-# Cadastro de Produtos de Loja de vendas de Jogos
+# Cadastro de Produtos de Loja de Vendas de Jogos
 
 Desenvolver tela de cadastro de produtoS para um e-commerce de jogos de video-game.
 
