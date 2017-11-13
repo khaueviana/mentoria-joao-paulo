@@ -44,4 +44,12 @@ Deploy da Aplicação [ADICIONAL]
 Arquitetura
 -----------
 
-- Criar estruturar em 3 camadas (http://www.macoratti.net/14/05/aspn_3cam.htm)
+- Criar estruturar em 3 camadas (UI, BLL, DALL) 
+
+- Referências:
+
+Exemplos em VB e C# apenas para entender a ideia das camadas
+
+http://www.macoratti.net/14/05/aspn_3cam.htm
+
+http://www.macoratti.net/cshp_3c1.htm
