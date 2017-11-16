@@ -27,8 +27,9 @@ Tecnologias Utilizadas
 ----------------------
 
 - ASP.NET Core MVC 2.0
-- Entity Framework Core 2.0
-- SQL Server [Criar instância local para ambiente de desenvolvimento]
+- ~~Entity Framework Core 2.0~~~
+- Salvar dados em uma Lista Tipada Estática
+- ~~SQL Server [Criar instância local para ambiente de desenvolvimento]~~
 
 Versionamento
 -------------
@@ -39,7 +40,7 @@ Deploy da Aplicação [ADICIONAL]
 -------------------------------
 
 - App Service no Azure
-- SQL Azure no Azure
+- ~~SQL Azure no Azure~~
 
 Arquitetura
 -----------
