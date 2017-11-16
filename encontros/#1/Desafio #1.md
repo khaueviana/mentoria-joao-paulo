@@ -28,7 +28,7 @@ Tecnologias Utilizadas
 
 - ASP.NET Core MVC 2.0
 - ~~Entity Framework Core 2.0~~~
-- Salvar dados em uma Lista Tipada Estática
+- Salvar dados em uma Lista Tipada Estática [EXEMPLO AQUI](https://github.com/khaueviana/mentoria-joao-paulo/blob/master/encontros/%231/sampleListCrud.cs)
 - ~~SQL Server [Criar instância local para ambiente de desenvolvimento]~~
 
 Versionamento
