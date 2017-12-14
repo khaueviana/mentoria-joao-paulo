@@ -1,0 +1,72 @@
+﻿@model UI.Models.JogosModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>JogosModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+
+                @using (Html.BeginForm("Create", "Jogos", FormMethod.Post)) {
+
+
+
+                    @Html.LabelFor(label => label.Id)
+                    @Html.TextBoxFor(tbox => tbox.Id)
+
+
+                    @Html.LabelFor(label => label.Nome)
+                    @Html.TextBoxFor(tbox => tbox.Nome)
+
+                    @Html.LabelFor(label => label.Descricao)
+                    @Html.TextBoxFor(tbox => tbox.CodigoBarra)
+
+                    @Html.LabelFor(label => label.Preco)
+                    @Html.TextBoxFor(tbox => tbox.Preco)
+
+                    @Html.LabelFor(label => label.QuantidadeEstoque)
+                    @Html.TextBoxFor(tbox => tbox.QuantidadeEstoque)
+
+                    <input type="submit" value="Create" id="Create" class="btn btn-default" />
+
+                }
+
+                @*<label>ID:</label>
+                    <input type="text" class="form-control" id="txtbId" />
+
+                    <label>Nome:</label>
+                    <input type="text" class="form-control" id="txtbNome" />
+
+                    <label>Descricao:</label>
+                    <input type="text" class="form-control" id="txtbDescricao" />
+
+                    <label>Codigo de Barra:</label>
+                    <input type="text" class="form-control" id="txtbCodBarra" />
+
+                    <label>Preco:</label>
+                    <input type="text" class="form-control" id="txtbPreco" />
+
+                    <label>Quantidade:</label>
+                    <input type="text" class="form-control" id="txtbQuantidade" />*@
+
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
