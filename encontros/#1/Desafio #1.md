@@ -27,8 +27,9 @@ Tecnologias Utilizadas
 ----------------------
 
 - ASP.NET Core MVC 2.0
-- Entity Framework Core 2.0
-- SQL Server [Criar instância local para ambiente de desenvolvimento]
+- ~~Entity Framework Core 2.0~~~
+- Salvar dados em uma Lista Tipada Estática [EXEMPLO AQUI](https://github.com/khaueviana/mentoria-joao-paulo/blob/master/encontros/%231/sampleListCrud.cs)
+- ~~SQL Server [Criar instância local para ambiente de desenvolvimento]~~
 
 Versionamento
 -------------
@@ -39,9 +40,17 @@ Deploy da Aplicação [ADICIONAL]
 -------------------------------
 
 - App Service no Azure
-- SQL Azure no Azure
+- ~~SQL Azure no Azure~~
 
 Arquitetura
 -----------
 
-- Criar estruturar em 3 camadas (http://www.macoratti.net/14/05/aspn_3cam.htm)
+- Criar estruturar em 3 camadas (UI, BLL, DALL) 
+
+- Referências:
+
+Exemplos em VB e C# apenas para entender a ideia das camadas
+
+http://www.macoratti.net/14/05/aspn_3cam.htm
+
+http://www.macoratti.net/cshp_3c1.htm

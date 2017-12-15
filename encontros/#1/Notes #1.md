@@ -119,3 +119,11 @@ Antes de qualquer linguagem, a base que é a Lógica de Programação e conceito
 Foi esclarecido que o Javascript é extremamente importante para qualquer profissional que queira entrar na área de desenvolvimento Web, independente se é Back-End ou Front-End. [JS == Inglês].
 
 Conhecemos algumas plataformas de cursos, e é recomendado consumir alguns conteúdos FREE, para depois partir para conteúdos PAGOS.
+
+## Dicas do Mentorado \o/
+
+https://imasters.com.br/framework/dotnet/o-padrao-repositorio-revisitado-parte-01/?trace=1519021197&source=search
+
+https://imasters.com.br/framework/dotnet/o-padrao-repositorio-revisitado-parte-02/?trace=1519021197&source=search
+
+https://imasters.com.br/framework/dotnet/o-padrao-repositorio-revisitado-parte-03/?trace=1519021197&source=search
