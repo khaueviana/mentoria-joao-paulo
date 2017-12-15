@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using DAL;
 using DTO;
 
@@ -25,11 +26,7 @@ namespace BLL{
             return true;
         }
 
-        //public IList Exibir() {
-
-
-        //    return
-        //}
+       
 
         public bool Update(JogosDTO dto) {
 

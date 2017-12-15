@@ -1,32 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BLL;
+﻿using BLL;
 using DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UI.Models;
 
 namespace UI.Controllers
 {
-    public class JogosController : Controller
-    {
+    public class JogosController : Controller {
 
+      
         
-        List<JogosModel> lista = new List<JogosModel>();
 
         // GET: Jogos
         public ActionResult Index() {
 
-            
-            return View(lista.ToList());
+
+           
+            return View();
         }//Index
+
 
         // GET: Jogos/Details/5
         public ActionResult Details(int id)  {
             return View();
         }//Details
+
 
         // GET: Jogos/Create
         public ActionResult Create() {
@@ -34,21 +35,32 @@ namespace UI.Controllers
             return View();
         }
 
+
         // POST: Jogos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(JogosModel jogos) {
             try {
-                // TODO: Add insert logic here
-                
-                lista.Add(jogos);
 
-                return RedirectToAction(nameof(Index));
+                JogosDTO dto = new JogosDTO();
+                JogosBLL bll = new JogosBLL();
+
+                dto.Id = jogos.Id;
+                dto.Nome = jogos.Nome;
+                dto.Descricao = jogos.Descricao;
+                dto.CodigoBarra = jogos.CodigoBarra;
+                dto.Preco = jogos.Preco;
+                dto.QuantidadeEstoque = jogos.QuantidadeEstoque;
+                bll.Cadastrar(dto);
+
+                
+                return (RedirectToAction("Index", new {jogos}));
             }
             catch {
                 return View();
             }
         }//Create
+
 
         // GET: Jogos/Edit/5
         public ActionResult Edit(int id) {

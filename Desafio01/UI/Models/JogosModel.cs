@@ -18,8 +18,8 @@ namespace UI.Models
         public int Preco { get; set; }
         public int QuantidadeEstoque { get; set; }
 
-            
 
+     
 
 
     }

@@ -23,9 +23,12 @@
 
 
                     @Html.LabelFor(label => label.Nome)
-                    @Html.TextBoxFor(tbox => tbox.Nome)
+                        @Html.TextBoxFor(tbox => tbox.Nome)
 
                     @Html.LabelFor(label => label.Descricao)
+                    @Html.TextBoxFor(tbox => tbox.Descricao)
+
+                    @Html.LabelFor(label => label.CodigoBarra)
                     @Html.TextBoxFor(tbox => tbox.CodigoBarra)
 
                     @Html.LabelFor(label => label.Preco)
@@ -33,10 +36,13 @@
 
                     @Html.LabelFor(label => label.QuantidadeEstoque)
                     @Html.TextBoxFor(tbox => tbox.QuantidadeEstoque)
+          
 
                     <input type="submit" value="Create" id="Create" class="btn btn-default" />
 
                 }
+
+
 
                 @*<label>ID:</label>
                     <input type="text" class="form-control" id="txtbId" />

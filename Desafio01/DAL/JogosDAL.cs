@@ -10,8 +10,11 @@ namespace DAL {
         public string Insert(JogosDTO jgs) {
             //jgs.Id++;
             if (jgs != null) {
+
                 db.Add(jgs);
+
                 return "Ok";
+
             } else {
 
                 return "Fail";
