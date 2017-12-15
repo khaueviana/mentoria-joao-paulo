@@ -11,11 +11,6 @@ namespace DTO
         public string CodigoBarra { get; set; }
         public double Preco { get; set; }
         public int QuantidadeEstoque { get; set; }
-
-      
-
-
-        
         
     }
 }

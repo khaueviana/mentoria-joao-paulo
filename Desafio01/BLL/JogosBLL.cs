@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DAL;
 using DTO;
 
-namespace BLL{
+namespace BLL {
 
     public class JogosBLL {
 
@@ -12,9 +12,11 @@ namespace BLL{
         //Construtor ou dar override no metodo da DAL?
         JogosDAL dal = new JogosDAL();
 
+
         public bool Cadastrar(JogosDTO dto) {
 
             dal.Insert(dto);
+
 
             return true;
         }
@@ -26,7 +28,11 @@ namespace BLL{
             return true;
         }
 
-       
+        public List<JogosDTO> Exibir() {
+
+            return dal.Show();
+
+        }
 
         public bool Update(JogosDTO dto) {
 

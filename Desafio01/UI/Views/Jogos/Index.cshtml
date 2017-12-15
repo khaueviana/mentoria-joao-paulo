@@ -1,4 +1,7 @@
-﻿@model DTO.JogosDTO
+﻿@using BLL;
+@*@model IEnumerable<UI.Models.JogosModel>*@
+@model List<UI.Models.JogosModel>
+
 
 
 
@@ -6,7 +9,7 @@
 @{
     ViewData["Title"] = "Index";
     
-    
+
 }
 
 <h2>Index</h2>
@@ -19,30 +22,39 @@
         <tr>
             <th>
                 Jogos
+                
             </th>
 
             <th>
-              
+
             </th>
 
         </tr>
     </thead>
     <tbody>
 
-        @ViewBag.Message
-
-        @*@foreach (var item in Model) {
-                <tr>
-                    <td>
 
 
+        @foreach (var item in Model) {
+            <tr>
+                
+                <td>
+                    <p>ID: @item.Id </p>
+                    <p>Nome: @item.Nome </p>
+                    <p>Descrição: @item.Descricao </p>
+                    <p>Codigo de Barra: @item.CodigoBarra </p>
+                    <p>Preço: @item.Preco </p>
+                    <p>Quantidade: @item.QuantidadeEstoque </p>
+                </td>
 
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */}) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
-        }*@
+                <td>
+                    
+                    @Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) |
+                    @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}) |
+                    @Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})
+                </td>
+            </tr>
+        }
 
     </tbody>
 </table>

@@ -1,5 +1,6 @@
 ﻿using DTO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL {
 
@@ -27,7 +28,12 @@ namespace DAL {
             var up = db.Find(x => x.Id == jgs.Id);
             
 
+         }
 
+
+        public List<JogosDTO> Show() {
+
+            return db.ToList();
         }
 
         public void Delete(JogosDTO jgs) {

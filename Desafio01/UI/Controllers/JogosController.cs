@@ -11,20 +11,27 @@ namespace UI.Controllers
 {
     public class JogosController : Controller {
 
-      
-        
+        private static JogosModel x;
+        private static JogosDTO d;
 
         // GET: Jogos
         public ActionResult Index() {
 
+            List<JogosModel> lista = new List<JogosModel>();
+            
+            lista.Add(x);
+            
 
-           
-            return View();
+                //new List<Models.JogosModel>()
+            return View(lista.ToList());
         }//Index
 
 
         // GET: Jogos/Details/5
-        public ActionResult Details(int id)  {
+        public ActionResult Details(int id) {
+
+            
+
             return View();
         }//Details
 
@@ -53,8 +60,11 @@ namespace UI.Controllers
                 dto.QuantidadeEstoque = jogos.QuantidadeEstoque;
                 bll.Cadastrar(dto);
 
+                bll.Exibir();
+                x = jogos;
                 
-                return (RedirectToAction("Index", new {jogos}));
+
+                return RedirectToAction(nameof(Index));
             }
             catch {
                 return View();
