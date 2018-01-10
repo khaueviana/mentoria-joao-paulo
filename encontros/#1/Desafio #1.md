@@ -54,3 +54,19 @@ Exemplos em VB e C# apenas para entender a ideia das camadas
 http://www.macoratti.net/14/05/aspn_3cam.htm
 
 http://www.macoratti.net/cshp_3c1.htm
+
+
+Feedback Entrega
+----------------
+
+Usings desnecessários
+
+Comentários desnecessários
+
+Código não identado
+
+"Enters" desnecessários
+
+Onde estão os tratamentos de erro na BLL?
+
+Por quê a BLL não está sendo chamada na UI?
