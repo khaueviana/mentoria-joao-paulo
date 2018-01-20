@@ -1,7 +1,7 @@
 ﻿namespace UI.Models
 {
-    public class JogosModel
-    {
+    public class JogosModel {
+
         //o que fazer nessa model? deixar assim e passar esses valores para o dto?
 
         public int Id { get; set; }

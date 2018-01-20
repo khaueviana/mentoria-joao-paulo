@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using UI.Models;
+using Desafio01.Models;
 
-namespace UI.Controllers
+namespace Desafio01.Controllers
 {
     public class HomeController : Controller
     {

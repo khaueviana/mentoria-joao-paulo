@@ -1,5 +1,6 @@
 ﻿using DTO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL
 {
@@ -9,20 +10,26 @@ namespace DAL
 
         public string Insert(JogosDTO jgs)
         {
-            if (jgs != null)
+            if (jgs == null)
             {
-                db.Add(jgs);
-                return "Ok";
+                return "Fail";
             }
             else
             {
-                return "Fail";
+                db.Add(jgs);
+
+                return "Ok";
             }
         }
 
         public void Update(JogosDTO jgs)
         {
             var up = db.Find(x => x.Id == jgs.Id);
+        }
+
+        public List<JogosDTO> FindAll()
+        {
+            return db.ToList();
         }
 
         public void Delete(JogosDTO jgs)
@@ -34,5 +41,7 @@ namespace DAL
         {
             db.Find(x => x.Id == jgs.Id);
         }
+
     }//Class
+
 }//Namespace

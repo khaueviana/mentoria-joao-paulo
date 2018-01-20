@@ -1,20 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using BLL;
+using DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using UI.Models;
 
 namespace UI.Controllers
 {
     public class JogosController : Controller
     {
-        List<JogosModel> lista = new List<JogosModel>();
-
         // GET: Jogos
         public ActionResult Index()
         {
-            return View(lista.ToList());
+            return View(new List<JogosModel>());
         }//Index
+
 
         // GET: Jogos/Details/5
         public ActionResult Details(int id)
@@ -22,11 +22,13 @@ namespace UI.Controllers
             return View();
         }//Details
 
+
         // GET: Jogos/Create
         public ActionResult Create()
         {
             return View();
         }
+
 
         // POST: Jogos/Create
         [HttpPost]
@@ -35,8 +37,17 @@ namespace UI.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-                lista.Add(jogos);
+
+                JogosDTO dto = new JogosDTO();
+                JogosBLL bll = new JogosBLL();
+
+                dto.Id = jogos.Id;
+                dto.Nome = jogos.Nome;
+                dto.Descricao = jogos.Descricao;
+                dto.CodigoBarra = jogos.CodigoBarra;
+                dto.Preco = jogos.Preco;
+                dto.QuantidadeEstoque = jogos.QuantidadeEstoque;
+                bll.Insert(dto);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -45,6 +56,7 @@ namespace UI.Controllers
                 return View();
             }
         }//Create
+
 
         // GET: Jogos/Edit/5
         public ActionResult Edit(int id)
@@ -83,6 +95,7 @@ namespace UI.Controllers
             try
             {
                 // TODO: Add delete logic here
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -90,5 +103,7 @@ namespace UI.Controllers
                 return View();
             }
         }//Delete
+
+
     }
 }
