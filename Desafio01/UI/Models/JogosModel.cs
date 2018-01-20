@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DTO;
-
-
-namespace UI.Models
+﻿namespace UI.Models
 {
     public class JogosModel {
 
@@ -17,10 +10,5 @@ namespace UI.Models
         public string CodigoBarra { get; set; }
         public int Preco { get; set; }
         public int QuantidadeEstoque { get; set; }
-
-
-     
-
-
     }
 }

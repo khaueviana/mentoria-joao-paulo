@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace DTO
+﻿namespace DTO
 {
     public class JogosDTO {
 
@@ -10,7 +7,6 @@ namespace DTO
         public string Descricao { get; set; }
         public string CodigoBarra { get; set; }
         public double Preco { get; set; }
-        public int QuantidadeEstoque { get; set; }
-        
+        public int QuantidadeEstoque { get; set; }        
     }
 }

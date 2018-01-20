@@ -2,43 +2,30 @@
 using DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UI.Models;
 
 namespace UI.Controllers
 {
-    public class JogosController : Controller {
-
-        private static JogosModel x;
-        private static JogosDTO d;
-
+    public class JogosController : Controller
+    {
         // GET: Jogos
-        public ActionResult Index() {
-
-            List<JogosModel> lista = new List<JogosModel>();
-            
-            lista.Add(x);
-            
-
-                //new List<Models.JogosModel>()
-            return View(lista.ToList());
+        public ActionResult Index()
+        {
+            return View(new List<JogosModel>());
         }//Index
 
 
         // GET: Jogos/Details/5
-        public ActionResult Details(int id) {
-
-            
-
+        public ActionResult Details(int id)
+        {
             return View();
         }//Details
 
 
         // GET: Jogos/Create
-        public ActionResult Create() {
-
+        public ActionResult Create()
+        {
             return View();
         }
 
@@ -46,8 +33,10 @@ namespace UI.Controllers
         // POST: Jogos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(JogosModel jogos) {
-            try {
+        public ActionResult Create(JogosModel jogos)
+        {
+            try
+            {
 
                 JogosDTO dto = new JogosDTO();
                 JogosBLL bll = new JogosBLL();
@@ -58,54 +47,59 @@ namespace UI.Controllers
                 dto.CodigoBarra = jogos.CodigoBarra;
                 dto.Preco = jogos.Preco;
                 dto.QuantidadeEstoque = jogos.QuantidadeEstoque;
-                bll.Cadastrar(dto);
-
-                bll.Exibir();
-                x = jogos;
-                
+                bll.Insert(dto);
 
                 return RedirectToAction(nameof(Index));
             }
-            catch {
+            catch
+            {
                 return View();
             }
         }//Create
 
 
         // GET: Jogos/Edit/5
-        public ActionResult Edit(int id) {
+        public ActionResult Edit(int id)
+        {
             return View();
         }
 
         // POST: Jogos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection) {
-            try {
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
                 // TODO: Add update logic here
 
                 return RedirectToAction(nameof(Index));
             }
-            catch {
+            catch
+            {
                 return View();
             }
         }//Edit
 
         // GET: Jogos/Delete/5
-        public ActionResult Delete(int id) {
+        public ActionResult Delete(int id)
+        {
             return View();
         }
 
         // POST: Jogos/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection) {
-            try{
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
                 // TODO: Add delete logic here
 
                 return RedirectToAction(nameof(Index));
             }
-            catch{
+            catch
+            {
                 return View();
             }
         }//Delete
