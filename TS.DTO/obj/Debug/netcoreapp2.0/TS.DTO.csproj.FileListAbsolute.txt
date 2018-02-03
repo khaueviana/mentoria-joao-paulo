@@ -1,0 +1,9 @@
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DTO\bin\Debug\netcoreapp2.0\TS.DTO.deps.json
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DTO\bin\Debug\netcoreapp2.0\TS.DTO.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DTO\bin\Debug\netcoreapp2.0\TS.DTO.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DTO\obj\Debug\netcoreapp2.0\TS.DTO.csprojResolveAssemblyReference.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DTO\obj\Debug\netcoreapp2.0\TS.DTO.csproj.CoreCompileInputs.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DTO\obj\Debug\netcoreapp2.0\TS.DTO.AssemblyInfoInputs.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DTO\obj\Debug\netcoreapp2.0\TS.DTO.AssemblyInfo.cs
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DTO\obj\Debug\netcoreapp2.0\TS.DTO.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DTO\obj\Debug\netcoreapp2.0\TS.DTO.pdb

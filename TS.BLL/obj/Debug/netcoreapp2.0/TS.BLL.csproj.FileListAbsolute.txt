@@ -1,0 +1,13 @@
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\bin\Debug\netcoreapp2.0\TS.BLL.deps.json
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\bin\Debug\netcoreapp2.0\TS.BLL.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\bin\Debug\netcoreapp2.0\TS.BLL.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\bin\Debug\netcoreapp2.0\TS.DAL.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\bin\Debug\netcoreapp2.0\TS.DTO.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\bin\Debug\netcoreapp2.0\TS.DAL.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\bin\Debug\netcoreapp2.0\TS.DTO.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\obj\Debug\netcoreapp2.0\TS.BLL.csprojResolveAssemblyReference.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\obj\Debug\netcoreapp2.0\TS.BLL.csproj.CoreCompileInputs.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\obj\Debug\netcoreapp2.0\TS.BLL.AssemblyInfoInputs.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\obj\Debug\netcoreapp2.0\TS.BLL.AssemblyInfo.cs
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\obj\Debug\netcoreapp2.0\TS.BLL.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.BLL\obj\Debug\netcoreapp2.0\TS.BLL.pdb

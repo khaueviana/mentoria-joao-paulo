@@ -1,0 +1,11 @@
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\bin\Debug\netcoreapp2.0\TS.DTO.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\obj\Debug\netcoreapp2.0\TS.DAL.csprojResolveAssemblyReference.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\obj\Debug\netcoreapp2.0\TS.DAL.csproj.CoreCompileInputs.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\obj\Debug\netcoreapp2.0\TS.DAL.AssemblyInfoInputs.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\obj\Debug\netcoreapp2.0\TS.DAL.AssemblyInfo.cs
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\bin\Debug\netcoreapp2.0\TS.DAL.deps.json
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\bin\Debug\netcoreapp2.0\TS.DAL.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\bin\Debug\netcoreapp2.0\TS.DAL.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\bin\Debug\netcoreapp2.0\TS.DTO.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\obj\Debug\netcoreapp2.0\TS.DAL.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.DAL\obj\Debug\netcoreapp2.0\TS.DAL.pdb

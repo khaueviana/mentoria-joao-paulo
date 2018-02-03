@@ -1,0 +1,17 @@
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.UI.deps.json
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.UI.runtimeconfig.json
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.UI.runtimeconfig.dev.json
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.UI.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.UI.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.BLL.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.DAL.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.DTO.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.BLL.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.DTO.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\bin\Debug\netcoreapp2.0\TS.DAL.pdb
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\obj\Debug\netcoreapp2.0\TS.UI.csprojResolveAssemblyReference.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\obj\Debug\netcoreapp2.0\TS.UI.csproj.CoreCompileInputs.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\obj\Debug\netcoreapp2.0\TS.UI.AssemblyInfoInputs.cache
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\obj\Debug\netcoreapp2.0\TS.UI.AssemblyInfo.cs
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\obj\Debug\netcoreapp2.0\TS.UI.dll
+C:\Users\JoãoPaulo\source\repos\Desafio02\TS.UI\obj\Debug\netcoreapp2.0\TS.UI.pdb
