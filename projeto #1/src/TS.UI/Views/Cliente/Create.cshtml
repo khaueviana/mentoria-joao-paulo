@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "Cadastrar Cliente";
+    Layout = "_LayoutAdm";
+}
+@model TS.DTO.Classes.Cliente
+
+<div class="container">
+    <h1 class="text-center">Cadastro de Clientes</h1>
+    <div class="row" style="padding-top: 10%">
+        <div class="col-lg-12">
+            <div class="form-group-lg">
+
+                <form asp-action="Create" class="text-center">
+                    <div class="col-lg-6">
+                        <label>@Html.DisplayNameFor(c => c.Nome)</label>
+                        <input asp-for="Nome" class="form-control"/>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>@Html.DisplayNameFor(c => c.Rg)</label>
+                        <input asp-for="Rg" class="form-control"/>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>@Html.DisplayNameFor(c => c.Cpf)</label>
+                        <input asp-for="Cpf" class="form-control"/>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>@Html.DisplayNameFor(c => c.Endereco)</label>
+                        <input asp-for="Endereco" class="form-control"/>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>@Html.DisplayNameFor(c => c.Telefone)</label>
+                        <input asp-for="Telefone" class="form-control"/>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>@Html.DisplayNameFor(c => c.Celular)</label>
+                        <input asp-for="Celular" class="form-control"/>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>@Html.DisplayNameFor(c => c.Email)</label>
+                        <input asp-for="Email" class="form-control"/>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>@Html.DisplayNameFor(c => c.Sessoes)</label>
+                        <select class="form-control">
+                            <option value="Teste">Teste</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" value="Cadastrar" class="btn btn-primary"/>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<br />
+<div class="row">
+    
+    <div class="col-lg-9">
+        
+    </div>
+    
+</div>
