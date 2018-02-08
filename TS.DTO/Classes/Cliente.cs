@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TS.DTO.Classes
 {
     public class Cliente
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Por favor, preencha o nome!")]
@@ -45,8 +49,8 @@ namespace TS.DTO.Classes
         [DisplayName("Email")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Selecione uma sessao")]
-        [DisplayName("Sessoes")]
-        public virtual ICollection<Sessao> Sessoes { get; set; }
+        //[Required(ErrorMessage = "Selecione uma sessao")]
+        //[DisplayName("Sessoes")]
+        //public virtual Collection<Sessao> Sessoes { get; set; }
     }
 }

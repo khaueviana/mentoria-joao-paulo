@@ -19,5 +19,11 @@ namespace TS.DAL
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer("Server=(LocalDB)\\MSSQLLocalDB;Database=desafio02;Trusted_Connection=true;MultipleActiveResultSets=True");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cliente>()
+                .HasKey(c => c.Id);
+        }
     }
 }

@@ -1,15 +1,22 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TS.BLL;
+using TS.DAL;
 using TS.DTO.Classes;
 
 namespace TS.UI.Controllers
 {
     public class ClienteController : Controller
     {
+        readonly ClienteBLL _clienteBll = new ClienteBLL();
+        readonly ClienteDAL _clienteDal = new ClienteDAL();
+
         // GET: Cliente
         public ActionResult Index()
-        {
-            return View();
+        {   
+            
+            return View(_clienteDal.GetAll().ToList());
         }
 
         // GET: Cliente/Details/5
@@ -31,9 +38,14 @@ namespace TS.UI.Controllers
         {
             try
             {
-                
+                if (!ModelState.IsValid)
+                {
+                    return View(cliente);
+                }
+                _clienteBll.Insert(cliente);
+                TempData["Success"] = "Adicionado com sucesso!";
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -44,19 +56,26 @@ namespace TS.UI.Controllers
         // GET: Cliente/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Cliente cliente = _clienteDal.GetById(id);
+
+            return View(cliente);
         }
 
         // POST: Cliente/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Cliente cliente)
         {
             try
             {
-                // TODO: Add update logic here
+                if (!ModelState.IsValid)
+                {
+                    return View(cliente);
+                }
 
-                return RedirectToAction(nameof(Index));
+                _clienteBll.Update(cliente);
+
+                return RedirectToAction("Index");
             }
             catch
             {
