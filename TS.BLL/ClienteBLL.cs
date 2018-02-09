@@ -24,9 +24,10 @@ namespace TS.BLL
             
         }
 
-        public void Delete(Cliente cliente)
+        public void Delete(int id)
         {
-            _context.Clientes.Remove(cliente);
+            Cliente cliente = _context.Clientes.Find(id);
+            _context.Remove(cliente);
             _context.SaveChanges();
 
             

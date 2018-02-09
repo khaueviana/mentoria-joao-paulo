@@ -86,24 +86,25 @@ namespace TS.UI.Controllers
         // GET: Cliente/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            _clienteBll.Delete(id);
+
+            return RedirectToAction("Index");
         }
 
         // POST: Cliente/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeleteConf(int id)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
+
     }
 }
