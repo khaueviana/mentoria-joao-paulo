@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TS.BLL;
 using TS.DAL;
@@ -6,42 +7,50 @@ using TS.DTO.Classes;
 
 namespace TS.UI.Controllers
 {
-    public class ClienteController : Controller
+    public class FuncionarioController : Controller
     {
-        readonly ClienteBLL _clienteBll = new ClienteBLL();
-        readonly ClienteDAL _clienteDal = new ClienteDAL();
 
-        // GET: Cliente
+        readonly FuncionarioBLL _funcionarioBll = new FuncionarioBLL();
+        readonly FuncionarioDAL _funcionarioDal = new FuncionarioDAL();
+        readonly Context _context = new Context();
+
+        // GET: Funcionario
         public ActionResult Index()
-        {   
-            
-            return View(_clienteDal.GetAll().ToList());
+        {
+            return View(_funcionarioDal.GetAll().ToList());
         }
 
-        // GET: Cliente/Details/5
+        // GET: Funcionario/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Cliente/Create
+        // GET: Funcionario/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Cliente/Create
+        // POST: Funcionario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Cliente cliente)
+        public ActionResult Create(Funcionario funcionario)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(cliente);
+                    return View(funcionario);
                 }
-                _clienteBll.Insert(cliente);
+
+                var u = funcionario.Usuario;
+                var usu = new UsuarioController();
+                usu.Create(u);
+
+                _funcionarioBll.Insert(funcionario);
+
+
                 TempData["Success"] = "Adicionado com sucesso!";
 
                 return RedirectToAction("Index");
@@ -52,27 +61,29 @@ namespace TS.UI.Controllers
             }
         }
 
-        // GET: Cliente/Edit/5
+        // GET: Funcionario/Edit/5
         public ActionResult Edit(int id)
         {
-            Cliente cliente = _clienteDal.GetById(id);
+            Funcionario func = _funcionarioDal.GetById(id);
 
-            return View(cliente);
+            return View(func);
         }
 
-        // POST: Cliente/Edit/5
+        // POST: Funcionario/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Cliente cliente)
+        public ActionResult Edit(Funcionario funcionario)
         {
             try
             {
+
                 if (!ModelState.IsValid)
                 {
-                    return View(cliente);
+                    return View(funcionario);
                 }
 
-                _clienteBll.Update(cliente);
+                _funcionarioBll.Update(funcionario);
+
 
                 return RedirectToAction("Index");
             }
@@ -82,21 +93,22 @@ namespace TS.UI.Controllers
             }
         }
 
-        // GET: Cliente/Delete/5
+        // GET: Funcionario/Delete/5
         public ActionResult Delete(int id)
         {
-            _clienteBll.Delete(id);
+            _funcionarioBll.Delete(id);
 
             return RedirectToAction("Index");
         }
 
-        // POST: Cliente/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Funcionario/Delete/5
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConf(int id)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
             try
             {
+                
                 return RedirectToAction("Index");
             }
             catch
@@ -104,6 +116,5 @@ namespace TS.UI.Controllers
                 return RedirectToAction("Index");
             }
         }
-
     }
 }

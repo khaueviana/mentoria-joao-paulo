@@ -14,6 +14,7 @@ namespace TS.DAL
         public DbSet<Sessao> Sessoes { get; set; }
         public DbSet<TipoUsuario> TipoUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             base.OnConfiguring(optionsBuilder);
@@ -24,6 +25,8 @@ namespace TS.DAL
         {
             modelBuilder.Entity<Cliente>()
                 .HasKey(c => c.Id);
+            modelBuilder.Entity<Funcionario>()
+                .HasKey(f => f.Id);
         }
     }
 }
