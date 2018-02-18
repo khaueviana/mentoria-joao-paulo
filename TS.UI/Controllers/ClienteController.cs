@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using TS.BLL;
 using TS.DAL;
@@ -46,8 +47,9 @@ namespace TS.UI.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
+                TempData["Error"] = ex.Message;
                 return View();
             }
         }
@@ -76,8 +78,9 @@ namespace TS.UI.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
+                TempData["Error"] = ex.Message;
                 return View();
             }
         }
@@ -99,8 +102,9 @@ namespace TS.UI.Controllers
             {
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
+                TempData["Error"] = ex.Message;
                 return RedirectToAction("Index");
             }
         }

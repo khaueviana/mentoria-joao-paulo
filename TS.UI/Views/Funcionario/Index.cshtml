@@ -94,7 +94,8 @@
 
             <td>
                 @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Remover", "Delete", new { id = item.Id })
+                @Html.ActionLink("Remover", "Delete", new { id = item.Id })|
+                @Html.ActionLink("Cadastrar Usuario","Create","Usuario")
             </td>
         </tr>
     }

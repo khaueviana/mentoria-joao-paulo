@@ -1,7 +1,14 @@
 ﻿@model TS.DTO.Classes.Funcionario
+
 @{
     ViewData["Title"] = "Cadastrar Funcionarios";
     Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+@if (TempData["Error"] != null)
+{
+    <script>alert("@TempData["Error"]")</script>
+
 }
 
 <div class="container">
@@ -55,29 +62,8 @@
 
                     <div class="col-lg-6">
                         <label asp-for="DataNascimento"></label>
-                        <input asp-for="DataNascimento" class="form-control" type="date" />
+                        <input asp-for="DataNascimento" class="form-control" type="text" />
                         <span asp-validation-for="DataNascimento" class="text-danger" style="font-size:small;"></span>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <label asp-for="Usuario.Login"></label>
-                        <input asp-for="Usuario.Login" class="form-control" type="text" />
-                        <span asp-validation-for="Usuario.Login" class="text-danger" style="font-size:small;"></span>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <label asp-for="Usuario.Senha"></label>
-                        <input asp-for="Usuario.Senha" class="form-control" type="password" />
-                        <span asp-validation-for="Usuario.Senha" class="text-danger" style="font-size:small;"></span>
-                    </div>
-                    
-                   <div class="col-lg-6">
-                        <label asp-for="Usuario.Tipo"></label>
-                        <Select asp-for="Usuario.Tipo.Id" class="form-control">
-                            <option value="1">Administrador</option>
-                            <option value="2">Funcionário</option>
-                        </Select>
-                        
                     </div>
 
                     <div class="col-lg-6">

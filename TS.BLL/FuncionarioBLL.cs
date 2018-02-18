@@ -10,9 +10,10 @@ namespace TS.BLL
 
         public void Insert(Funcionario funcionario)
         {
-
+            
             _context.Funcionarios.Add(funcionario);
             _context.SaveChanges();
+            
 
         }
 
@@ -33,5 +34,6 @@ namespace TS.BLL
 
         }
 
+    
     }
 }

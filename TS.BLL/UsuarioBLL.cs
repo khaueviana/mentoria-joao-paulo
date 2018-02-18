@@ -7,13 +7,13 @@ namespace TS.BLL
     {
 
         readonly Context _context = new Context();
+        
 
         public void Insert(Usuario usuario)
         {
-
+            
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();
-
         }
 
         public void Update(Usuario usuario)

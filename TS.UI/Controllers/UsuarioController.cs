@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TS.BLL;
@@ -13,11 +15,12 @@ namespace TS.UI.Controllers
 
         readonly UsuarioBLL _usuarioBll = new UsuarioBLL();
         readonly UsuarioDAL _usuarioDal = new UsuarioDAL();
+        private Context _context = new Context();
 
         // GET: Usuario
         public ActionResult Index()
         {
-            return View();
+            return View(_usuarioDal.GetAll().ToList());
         }
 
         // GET: Usuario/Details/5
@@ -29,6 +32,8 @@ namespace TS.UI.Controllers
         // GET: Usuario/Create
         public ActionResult Create()
         {
+            ViewBag.TipoId = new SelectList(_context.TipoUsuarios, "Id", "Descricao");
+
             return View();
         }
 
@@ -37,18 +42,16 @@ namespace TS.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Usuario usuario)
         {
-            try {
-                //ViewBag.TipoId = new SelectList(
-                //    new Context().TipoUsuarios,
-                //    "Id",
-                //    "Tipo");
+            try
+            {
                 _usuarioBll.Insert(usuario);
 
-                
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                TempData["Error"] = ex.InnerException.Message;
+
                 return View();
             }
         }

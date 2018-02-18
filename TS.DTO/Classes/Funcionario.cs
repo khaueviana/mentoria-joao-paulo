@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -51,7 +50,7 @@ namespace TS.DTO.Classes
 
         [Required(ErrorMessage = "Por favor, preencha a data de nascimento!")]
         [DisplayName("Data de Nascimento")]
-        public DateTime DataNascimento { get; set; }
+        public string DataNascimento { get; set; }
         
         public Usuario Usuario { get; set; }
 

@@ -1,8 +1,15 @@
-﻿
+﻿@using TS.DTO.Classes
+@model TS.DTO.Classes.Usuario
 @{
     ViewData["Title"] = "Cadastrar Usuarios";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
 }
 
+@if (TempData["Error"] != null)
+{
+    <script>alert("@TempData["Error"]")</script>
+
+}
 <h1>Cadastrar Usuarios</h1>
 <div class="container">
     <div class="row" style="padding-top: 10%">
@@ -10,13 +17,30 @@
             <div class="col-lg-3"></div>
             <div class="form-group-lg">
                 <div class="col-lg-6">
-                    <form class="text-center">
-                        <label>Login do Usuario:</label>
-                        <input type="text" class="form-control"/>
-                        <label>Senha do Usuario:</label>
-                        <input type="text" class="form-control"/>
-                        @Html.DropDownList("Id", String.Empty);
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <form asp-action="Create" class="text-center">
+
+                        <div class="col-lg-6">
+                            <label asp-for="Login"></label>
+                            <input asp-for="Login" class="form-control" type="text" />
+                            <span asp-validation-for="Login" class="text-danger" style="font-size:small;"></span>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <label asp-for="Senha"></label>
+                            <input asp-for="Senha" class="form-control" type="password" />
+                            <span asp-validation-for="Senha" class="text-danger" style="font-size:small;"></span>
+                        </div>
+
+                        <div class="col-lg-6">
+                         @using (Html.BeginForm())
+                         {
+                         
+                        @Html.DropDownList("TipoId", "Selecione o tipo de usuario")
+                             <button type="submit" class="btn btn-primary">Cadastrar</button>
+                         }
+                        </div>
+
+                        
                     </form>
                 </div>
             </div>

@@ -4,6 +4,11 @@
     Layout = "_LayoutAdm";
 }
 
+@if (TempData["Error"] != null)
+{
+    <script>alert("@TempData["Error"]")</script>
+
+}
 
 <div class="container">
     <h1 class="text-center">Cadastro de Clientes</h1>
@@ -53,7 +58,7 @@
                         <input asp-for="Email" class="form-control" />
                         <span asp-validation-for="Email" class="text-danger" style="font-size:small;"></span>
                     </div>
-                    
+
                     <div class="col-lg-6">
                         <br />
                         <br />

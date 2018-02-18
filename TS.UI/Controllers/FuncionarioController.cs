@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TS.BLL;
 using TS.DAL;
 using TS.DTO.Classes;
+using TS.UI.Models;
 
 namespace TS.UI.Controllers
 {
@@ -12,8 +14,7 @@ namespace TS.UI.Controllers
 
         readonly FuncionarioBLL _funcionarioBll = new FuncionarioBLL();
         readonly FuncionarioDAL _funcionarioDal = new FuncionarioDAL();
-        readonly Context _context = new Context();
-
+        
         // GET: Funcionario
         public ActionResult Index()
         {
@@ -32,10 +33,11 @@ namespace TS.UI.Controllers
             return View();
         }
 
+
         // POST: Funcionario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Funcionario funcionario)
+        public ActionResult Create(Funcionario funcionario, Usuario usuario)
         {
             try
             {
@@ -43,23 +45,23 @@ namespace TS.UI.Controllers
                 {
                     return View(funcionario);
                 }
-
-                var u = funcionario.Usuario;
-                var usu = new UsuarioController();
-                usu.Create(u);
-
+                
                 _funcionarioBll.Insert(funcionario);
-
+                
 
                 TempData["Success"] = "Adicionado com sucesso!";
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Usuario");
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                TempData["Error"] = ex.Message;
+                return View(funcionario);
             }
         }
+
+            
+
 
         // GET: Funcionario/Edit/5
         public ActionResult Edit(int id)

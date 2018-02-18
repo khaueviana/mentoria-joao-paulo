@@ -19,5 +19,10 @@ namespace TS.UI.Controllers
         {
             return RedirectToAction("Create", "Funcionario");
         }
+
+        public IActionResult Sair()
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
