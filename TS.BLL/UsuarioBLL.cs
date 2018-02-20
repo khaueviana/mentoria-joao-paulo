@@ -9,9 +9,9 @@ namespace TS.BLL
         readonly Context _context = new Context();
         
 
-        public void Insert(Usuario usuario)
+        public void Insert(Usuario usuario, int TipoId)
         {
-            
+            usuario.TipoUsuarioId = TipoId;
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();
         }

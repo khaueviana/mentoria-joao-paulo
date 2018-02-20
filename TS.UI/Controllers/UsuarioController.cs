@@ -40,11 +40,11 @@ namespace TS.UI.Controllers
         // POST: Usuario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Usuario usuario)
+        public ActionResult Create(Usuario usuario, int TipoId)
         {
             try
             {
-                _usuarioBll.Insert(usuario);
+                _usuarioBll.Insert(usuario, TipoId);
 
                 return RedirectToAction("Index");
             }
