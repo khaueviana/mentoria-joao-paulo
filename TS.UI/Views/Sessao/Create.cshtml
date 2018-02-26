@@ -1,0 +1,57 @@
+﻿@model TS.DTO.Classes.Sessao
+@{
+    ViewData["Title"] = "Agendar Clientes";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+@if (TempData["Error"] != null)
+{
+    <script>alert("@TempData["Error"]")</script>
+
+}
+
+<div class="container">
+    <h1 class="text-center">Agendamento de Clientes</h1>
+    <div class="row" style="padding-top: 10%">
+        <div class="col-lg-12">
+            <div class="form-group-lg">
+
+                <form asp-action="Create" class="text-center">
+
+                    <div class="col-lg-6">
+                        <label asp-for="Data"></label>
+                        <input asp-for="Data" type="date" class="form-control" />
+                        <span asp-validation-for="Data" class="text-danger" style="font-size:small;"></span>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label asp-for="Preco"></label>
+                        <input asp-for="Preco" type="text" class="form-control" />
+                        <span asp-validation-for="Preco" class="text-danger" style="font-size:small;"></span>
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        @Html.DropDownList("ClienteId", "Selecione um cliente")
+                        
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        @Html.DropDownList("FormaPagamentoId", "Selecione uma forma de pagamento")
+                        
+
+                    </div>
+
+                    <div class="col-lg-6">
+                        <br />
+                        <br />
+                        <input type="submit" value="Agendar" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
