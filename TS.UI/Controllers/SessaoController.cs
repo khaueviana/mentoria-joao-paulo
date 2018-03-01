@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures.Internal;
+using Microsoft.EntityFrameworkCore;
 using TS.BLL;
 using TS.DAL;
 using TS.DTO.Classes;
@@ -15,11 +17,14 @@ namespace TS.UI.Controllers
         readonly ClienteDAL _clienteDal = new ClienteDAL();
         readonly SessaoBLL _sessaoBll = new SessaoBLL();
         readonly PagamentoDAL _pagamentoDal = new PagamentoDAL();
+        readonly SessaoDAL _sessaoDal = new SessaoDAL();
+        
 
         // GET: Sessao
         public ActionResult Index()
         {
-            return View();
+           
+            return View(_sessaoDal.GetAll().ToList());
         }
 
         // GET: Sessao/Details/5
@@ -40,13 +45,14 @@ namespace TS.UI.Controllers
         // POST: Sessao/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Sessao sessao)
+        public ActionResult Create(Sessao sessao, int clienteId, int formaPagamentoId)
         {
-
+            ViewBag.ClienteId = new SelectList(_clienteDal.GetAll(), "Id", "Nome");
+            ViewBag.FormaPagamentoId = new SelectList(_pagamentoDal.GetAll(), "Id", "Descricao");
             try
             {
-                _sessaoBll.Insert(sessao);
-             
+                _sessaoBll.Insert(sessao, clienteId, formaPagamentoId);
+                TempData["Success"] = "Adicionado com sucesso!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

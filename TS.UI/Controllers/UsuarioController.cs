@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,7 +16,7 @@ namespace TS.UI.Controllers
 
         readonly UsuarioBLL _usuarioBll = new UsuarioBLL();
         readonly UsuarioDAL _usuarioDal = new UsuarioDAL();
-        private Context _context = new Context();
+        readonly TipoUsuarioDAL _tipoUsuarioDal = new TipoUsuarioDAL();
 
         // GET: Usuario
         public ActionResult Index()
@@ -32,7 +33,7 @@ namespace TS.UI.Controllers
         // GET: Usuario/Create
         public ActionResult Create()
         {
-            ViewBag.TipoId = new SelectList(_context.TipoUsuarios, "Id", "Descricao");
+            ViewBag.TipoId = new SelectList(_tipoUsuarioDal.GetAll(), "Id", "Descricao");
 
             return View();
         }
@@ -40,11 +41,11 @@ namespace TS.UI.Controllers
         // POST: Usuario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Usuario usuario, int TipoId)
+        public ActionResult Create(Usuario usuario, int tipoId)
         {
             try
             {
-                _usuarioBll.Insert(usuario, TipoId);
+                _usuarioBll.Insert(usuario, tipoId);
 
                 return RedirectToAction("Index");
             }

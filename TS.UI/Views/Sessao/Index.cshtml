@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TS.DTO.Classes.Sessao>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+@if (TempData["Success"] != null)
+{
+    <script>alert("@TempData["Success"]")</script>
+
+}
+
+<h2>Clientes Agendados</h2>
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FormaPagamento)
+        </th>
+        
+    </tr>
+
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormaPagamento.Descricao)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new {id = item.Id}) |
+                @Html.ActionLink("Remover", "Delete", new {id = item.Id})
+            </td>
+        </tr>
+    }
+    
+</table>
+

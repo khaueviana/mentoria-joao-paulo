@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TS.DTO.Classes
 {
@@ -12,6 +11,7 @@ namespace TS.DTO.Classes
 
         [Required(ErrorMessage = "Por favor, preencha a data do agendamento!")]
         [DisplayName("Data")]
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime Data { get; set; }
 
         [Required(ErrorMessage = "Por favor, preencha o valor da sessao!")]

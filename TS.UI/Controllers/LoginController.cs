@@ -37,16 +37,16 @@ namespace TS.UI.Controllers
         public ActionResult Filtrar()
         {
 
-            //var tipo = (from u in _context.Usuarios
-            //            select u.Tipo.Id);
-            
-            //if (tipo.First() != 1)
-            //{
-            //    ViewBag.Func = "Funcionario:";
-            //    return Redirect("/Funcionario/Index");
-                
-                
-            //}
+            var tipo = (from u in _context.Usuarios
+                        select u.Tipo.Id);
+
+            if (tipo.First() != 1)
+            {
+                ViewBag.Func = "Funcionario:";
+                return Redirect("/Funcionario/Index");
+
+
+            }
             ViewBag.Adm = "Administrador";
             
             return Redirect("/Adm/Index");

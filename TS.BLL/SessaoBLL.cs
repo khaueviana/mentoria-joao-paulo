@@ -8,10 +8,10 @@ namespace TS.BLL
 
         readonly Context _context = new Context();
 
-        public void Insert(Sessao sessao)
+        public void Insert(Sessao sessao, int clienteId, int formaPagamentoId)
         {
-            //sessao.ClienteId = clienteId;
-            //sessao.FormaPagamentoId = formaPagamentoId;
+            sessao.ClienteId = clienteId;
+            sessao.FormaPagamentoId = formaPagamentoId;
             _context.Sessoes.Add(sessao);
             _context.SaveChanges();
 

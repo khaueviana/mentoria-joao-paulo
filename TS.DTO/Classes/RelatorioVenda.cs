@@ -9,7 +9,8 @@ namespace TS.DTO.Classes
         public DateTime Data { get; set; }
         public decimal Total { get; set; }
 
-        public virtual Cliente Clientes { get; set; }
-        public virtual ICollection<Sessao> Sessoes { get; set; }
+        public virtual ICollection<Venda> Vendas { get; set; }
+        
+        
     }
 }
