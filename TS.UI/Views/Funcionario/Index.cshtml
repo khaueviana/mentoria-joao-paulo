@@ -6,12 +6,6 @@
     Layout = "_LayoutAdm";
 }
 
-@if (TempData["Success"] != null)
-{
-    <script>alert("@TempData["Success"]")</script>
-
-}
-
 <h2>Funcionarios</h2>
 
 <table class="table table-hover">
@@ -95,7 +89,7 @@
             <td>
                 @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Remover", "Delete", new { id = item.Id })|
-                @Html.ActionLink("Cadastrar Usuario","Create","Usuario")
+                
             </td>
         </tr>
     }

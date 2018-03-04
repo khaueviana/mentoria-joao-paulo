@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using TS.DTO.Classes;
 
 namespace TS.DAL
@@ -11,7 +12,8 @@ namespace TS.DAL
         public IEnumerable<Usuario> GetAll()
         {
 
-            return new List<Usuario>(_context.Usuarios);
+            return new List<Usuario>(_context.Usuarios
+                .Include(u => u.Tipo));
         }
 
         public Usuario GetById(int id)

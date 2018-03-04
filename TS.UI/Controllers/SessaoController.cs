@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ViewFeatures.Internal;
-using Microsoft.EntityFrameworkCore;
 using TS.BLL;
 using TS.DAL;
 using TS.DTO.Classes;
@@ -18,19 +15,13 @@ namespace TS.UI.Controllers
         readonly SessaoBLL _sessaoBll = new SessaoBLL();
         readonly PagamentoDAL _pagamentoDal = new PagamentoDAL();
         readonly SessaoDAL _sessaoDal = new SessaoDAL();
-        
+
 
         // GET: Sessao
         public ActionResult Index()
         {
-           
-            return View(_sessaoDal.GetAll().ToList());
-        }
 
-        // GET: Sessao/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+            return View(_sessaoDal.GetAll().ToList());
         }
 
         // GET: Sessao/Create
@@ -49,10 +40,18 @@ namespace TS.UI.Controllers
         {
             ViewBag.ClienteId = new SelectList(_clienteDal.GetAll(), "Id", "Nome");
             ViewBag.FormaPagamentoId = new SelectList(_pagamentoDal.GetAll(), "Id", "Descricao");
+
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(sessao);
+                }
+
                 _sessaoBll.Insert(sessao, clienteId, formaPagamentoId);
+
                 TempData["Success"] = "Adicionado com sucesso!";
+
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -68,22 +67,34 @@ namespace TS.UI.Controllers
         // GET: Sessao/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.ClienteId = new SelectList(_clienteDal.GetAll(), "Id", "Nome");
+            ViewBag.FormaPagamentoId = new SelectList(_pagamentoDal.GetAll(), "Id", "Descricao");
             return View();
         }
 
         // POST: Sessao/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Sessao sessao, int clienteId, int formaPagamentoId)
         {
+
+            ViewBag.ClienteId = new SelectList(_clienteDal.GetAll(), "Id", "Nome");
+            ViewBag.FormaPagamentoId = new SelectList(_pagamentoDal.GetAll(), "Id", "Descricao");
+
             try
             {
-                // TODO: Add update logic here
+                if (!ModelState.IsValid)
+                {
+                    return View(sessao);
+                }
 
-                return RedirectToAction(nameof(Index));
+                _sessaoBll.Update(sessao, clienteId, formaPagamentoId);
+
+                return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                TempData["Error"] = ex.InnerException;
                 return View();
             }
         }
@@ -91,24 +102,10 @@ namespace TS.UI.Controllers
         // GET: Sessao/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            _sessaoBll.Delete(id);
+            return RedirectToAction("Index");
         }
 
-        // POST: Sessao/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+      
     }
 }

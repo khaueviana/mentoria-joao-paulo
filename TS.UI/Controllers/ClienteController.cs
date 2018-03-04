@@ -19,12 +19,6 @@ namespace TS.UI.Controllers
             return View(_clienteDal.GetAll().ToList());
         }
 
-        // GET: Cliente/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: Cliente/Create
         public ActionResult Create()
         {
@@ -80,7 +74,7 @@ namespace TS.UI.Controllers
             }
             catch(Exception ex)
             {
-                TempData["Error"] = ex.Message;
+                TempData["Error"] = ex.InnerException;
                 return View();
             }
         }

@@ -17,8 +17,10 @@ namespace TS.BLL
 
         }
 
-        public void Update(Sessao sessao)
+        public void Update(Sessao sessao, int clienteId, int formaPagamentoId)
         {
+            sessao.ClienteId = clienteId;
+            sessao.FormaPagamentoId = formaPagamentoId;
             _context.Sessoes.Update(sessao);
             _context.SaveChanges();
             
@@ -28,6 +30,7 @@ namespace TS.BLL
         {
             Sessao sessao = _context.Sessoes.Find(id);
             _context.Sessoes.Remove(sessao);
+            _context.SaveChanges();
         }
     }
 }
