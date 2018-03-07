@@ -1,13 +1,19 @@
 ﻿@model IEnumerable<TS.DTO.Classes.Sessao>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sessoes";
     Layout = "~/Views/Shared/_LayoutAdm.cshtml";
 }
 
 @if (TempData["Success"] != null)
 {
     <script>alert("@TempData["Success"]")</script>
+
+}
+
+@if (TempData["Venda"] != null)
+{
+    <script>alert("@TempData["Venda"]")</script>
 
 }
 
@@ -31,7 +37,7 @@
         <th>
             @Html.DisplayNameFor(model => model.FormaPagamento)
         </th>
-        
+
     </tr>
 
 
@@ -57,13 +63,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FormaPagamento.Descricao)
             </td>
-           
+
             <td>
-                @Html.ActionLink("Alterar", "Edit", new {id = item.Id}) |
-                @Html.ActionLink("Remover", "Delete", new {id = item.Id})
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Remover", "Delete", new { id = item.Id }) |
+                @Html.ActionLink("Gerar Venda", "GerarVenda","Venda", new { id = item.Id })
             </td>
         </tr>
     }
-    
+
 </table>
 

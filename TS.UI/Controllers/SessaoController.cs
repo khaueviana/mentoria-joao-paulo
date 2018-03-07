@@ -15,6 +15,7 @@ namespace TS.UI.Controllers
         readonly SessaoBLL _sessaoBll = new SessaoBLL();
         readonly PagamentoDAL _pagamentoDal = new PagamentoDAL();
         readonly SessaoDAL _sessaoDal = new SessaoDAL();
+        
 
 
         // GET: Sessao
@@ -105,6 +106,8 @@ namespace TS.UI.Controllers
             _sessaoBll.Delete(id);
             return RedirectToAction("Index");
         }
+
+       
 
       
     }

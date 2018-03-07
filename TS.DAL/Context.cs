@@ -15,6 +15,7 @@ namespace TS.DAL
         public DbSet<TipoUsuario> TipoUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<Venda> Venda { get; set; }
 
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
