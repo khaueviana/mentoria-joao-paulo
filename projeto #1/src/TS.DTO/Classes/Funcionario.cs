@@ -4,8 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TS.DTO.Classes
 {
-    public class Cliente
+   public class Funcionario
     {
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -24,7 +25,7 @@ namespace TS.DTO.Classes
         [Required(ErrorMessage = "Por favor, preencha o CPF!")]
         [StringLength(11, ErrorMessage = "O CPF deve conter 11 digitos")]
         [DisplayName("CPF")]
-        public string  Cpf { get; set; }
+        public string Cpf { get; set; }
 
         [Required(ErrorMessage = "Por favor, preencha o Endereco!")]
         [StringLength(60)]
@@ -40,12 +41,18 @@ namespace TS.DTO.Classes
         [StringLength(12)]
         [DisplayName("Celular")]
         public string Celular { get; set; }
-        
+
         [Required(ErrorMessage = "Por favor, preencha o email!")]
         [EmailAddress(ErrorMessage = "Email invalido!")]
         [StringLength(60)]
         [DisplayName("Email")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Por favor, preencha a data de nascimento!")]
+        [DisplayName("Data de Nascimento")]
+        public string DataNascimento { get; set; }
+        
+        public Usuario Usuario { get; set; }
 
     }
 }

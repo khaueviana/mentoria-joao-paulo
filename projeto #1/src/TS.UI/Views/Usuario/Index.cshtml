@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TS.DTO.Classes.Usuario>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<h2>Usuarios Cadastrados</h2>
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo.Descricao)
+        </th>
+   </tr>
+
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo.Descricao)
+            </td>
+
+          <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Remover", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

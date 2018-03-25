@@ -1,18 +1,12 @@
-﻿@model IEnumerable<TS.DTO.Classes.Cliente>
+﻿@model IEnumerable<TS.DTO.Classes.Funcionario>
 
 
 @{
-    ViewData["Title"] = "Clientes Cadastrados";
+    ViewData["Title"] = "Funcionarios Cadastrados";
     Layout = "_LayoutAdm";
 }
 
-@if (TempData["Success"] != null)
-{
-    <script>alert("@TempData["Success"]")</script>
-
-}
-
-<h2>Clientes</h2>
+<h2>Funcionarios</h2>
 
 <table class="table table-hover">
     <tr>
@@ -41,13 +35,21 @@
         <th>
             @Html.DisplayNameFor(model => model.Celular)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.Login)
+        </th>
+
 
     </tr>
 
 
 
 
-@foreach (var item in Model)
+    @foreach (var item in Model)
     {
         <tr>
             <td>
@@ -76,12 +78,20 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Celular)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
             
             <td>
-                @Html.ActionLink("Alterar", "Edit", new {id = item.Id}) |
-                @Html.ActionLink("Remover", "Delete", new {id = item.Id})
+                @Html.DisplayFor(modelItem => item.Usuario.Login)
+            </td>
+
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Remover", "Delete", new { id = item.Id })|
+                
             </td>
         </tr>
     }
-    
+
 </table>

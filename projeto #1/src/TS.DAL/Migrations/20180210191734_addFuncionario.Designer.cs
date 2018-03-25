@@ -3,15 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 using TS.DAL;
 
 namespace TS.DAL.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20180210191734_addFuncionario")]
+    partial class addFuncionario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,8 +72,7 @@ namespace TS.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(11);
 
-                    b.Property<string>("DataNascimento")
-                        .IsRequired();
+                    b.Property<DateTime>("DataNascimento");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -92,9 +94,13 @@ namespace TS.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(11);
 
-                    b.Property<int?>("UsuarioId");
+                    b.Property<int>("TipoUsuarioId");
+
+                    b.Property<int>("UsuarioId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TipoUsuarioId");
 
                     b.HasIndex("UsuarioId");
 
@@ -122,11 +128,15 @@ namespace TS.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("ClientesId");
+
                     b.Property<DateTime>("Data");
 
                     b.Property<decimal>("Total");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClientesId");
 
                     b.ToTable("Relatorios");
                 });
@@ -136,19 +146,23 @@ namespace TS.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ClienteId");
+                    b.Property<int?>("ClienteId");
 
                     b.Property<DateTime>("Data");
 
-                    b.Property<int>("FormaPagamentoId");
+                    b.Property<int?>("FormaPagamentoId");
 
                     b.Property<decimal>("Preco");
+
+                    b.Property<int?>("RelatorioVendaId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
                     b.HasIndex("FormaPagamentoId");
+
+                    b.HasIndex("RelatorioVendaId");
 
                     b.ToTable("Sessoes");
                 });
@@ -176,75 +190,55 @@ namespace TS.DAL.Migrations
 
                     b.Property<string>("Senha");
 
-                    b.Property<int>("TipoUsuarioId");
+                    b.Property<int?>("TipoId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TipoUsuarioId");
+                    b.HasIndex("TipoId");
 
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("TS.DTO.Classes.Venda", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Data");
-
-                    b.Property<int?>("RelatorioVendaId");
-
-                    b.Property<int>("SessaoId");
-
-                    b.Property<decimal>("Valor");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RelatorioVendaId");
-
-                    b.HasIndex("SessaoId");
-
-                    b.ToTable("Venda");
-                });
-
             modelBuilder.Entity("TS.DTO.Classes.Funcionario", b =>
                 {
+                    b.HasOne("TS.DTO.Classes.TipoUsuario", "TipoUsuario")
+                        .WithMany()
+                        .HasForeignKey("TipoUsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("TS.DTO.Classes.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("TS.DTO.Classes.RelatorioVenda", b =>
+                {
+                    b.HasOne("TS.DTO.Classes.Cliente", "Clientes")
+                        .WithMany()
+                        .HasForeignKey("ClientesId");
                 });
 
             modelBuilder.Entity("TS.DTO.Classes.Sessao", b =>
                 {
                     b.HasOne("TS.DTO.Classes.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ClienteId");
 
                     b.HasOne("TS.DTO.Classes.Pagamento", "FormaPagamento")
                         .WithMany()
-                        .HasForeignKey("FormaPagamentoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("FormaPagamentoId");
+
+                    b.HasOne("TS.DTO.Classes.RelatorioVenda")
+                        .WithMany("Sessoes")
+                        .HasForeignKey("RelatorioVendaId");
                 });
 
             modelBuilder.Entity("TS.DTO.Classes.Usuario", b =>
                 {
                     b.HasOne("TS.DTO.Classes.TipoUsuario", "Tipo")
                         .WithMany("Usuarios")
-                        .HasForeignKey("TipoUsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TS.DTO.Classes.Venda", b =>
-                {
-                    b.HasOne("TS.DTO.Classes.RelatorioVenda")
-                        .WithMany("Vendas")
-                        .HasForeignKey("RelatorioVendaId");
-
-                    b.HasOne("TS.DTO.Classes.Sessao", "Sessao")
-                        .WithMany()
-                        .HasForeignKey("SessaoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TipoId");
                 });
 #pragma warning restore 612, 618
         }

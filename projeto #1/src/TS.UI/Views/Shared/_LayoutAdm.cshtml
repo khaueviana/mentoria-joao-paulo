@@ -26,15 +26,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Gerenciador</a>
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Cliente" asp-action="Index">Clientes</a></li>
                     <li><a asp-area="" asp-controller="Cliente" asp-action="Create">Cadastrar Clientes</a></li>
-                    <li><a asp-area="" asp-controller="Cliente" asp-action="About">Agendar Clientes</a></li>
-                    <li><a asp-area="" asp-controller="Adm" asp-action="Contact">Consultar Agenda</a></li>
-                    <li><a asp-area="" asp-controller="Usuario" asp-action="Index">Cadastrar Funcionarios</a></li>
+                    <li><a asp-area="" asp-controller="Sessao" asp-action="Create">Agendar Clientes</a></li>
+                    <li><a asp-area="" asp-controller="Sessao" asp-action="Index">Consultar Agenda</a></li>
+                    <li><a asp-area="" asp-controller="Funcionario" asp-action="Create">Cadastrar Funcionarios</a></li>
+                    <li><a asp-area="" asp-controller="Funcionario" asp-action="Index">Funcionarios</a></li>
                     <li><a asp-area="" asp-controller="Cliente" asp-action="Index">Gerar Relatorios</a></li>
+                    <li><a asp-area="" asp-controller="Usuario" asp-action="Create">Cadastrar Usuarios</a></li>
                     <li><a asp-area="" asp-controller="Adm" asp-action="Sair">Sair</a></li>
                 </ul>
             </div>

@@ -1,71 +1,57 @@
 ﻿@model TS.DTO.Classes.Cliente
 @{
-    ViewData["Title"] = "Cadastrar Cliente";
+    ViewData["Title"] = "Clientes Cadastrados";
     Layout = "_LayoutAdm";
 }
 
-@if (TempData["Error"] != null)
-{
-    <script>alert("@TempData["Error"]")</script>
-
-}
-
-
-
 <div class="container">
-    <h1 class="text-center">Cadastro de Clientes</h1>
+    <h1 class="text-center">Alterar Clientes</h1>
     <div class="row" style="padding-top: 10%">
         <div class="col-lg-12">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group-lg">
-                <form asp-action="Create" class="text-center">
+                <form asp-action="Edit" class="text-center">
                     <div class="col-lg-6">
                         <label asp-for="Nome"></label>
                         <input asp-for="Nome" class="form-control" />
-                        <span asp-validation-for="Nome" class="text-danger" style="font-size:small;"></span>
                     </div>
 
                     <div class="col-lg-6">
                         <label asp-for="Rg"></label>
                         <input asp-for="Rg" class="form-control" />
-                        <span asp-validation-for="Rg" class="text-danger" style="font-size:small;"></span>
+
                     </div>
 
                     <div class="col-lg-6">
                         <label asp-for="Cpf"></label>
                         <input asp-for="Cpf" class="form-control" />
-                        <span asp-validation-for="Cpf" class="text-danger" style="font-size:small;"></span>
+
                     </div>
 
                     <div class="col-lg-6">
                         <label asp-for="Endereco"></label>
                         <input asp-for="Endereco" class="form-control" />
-                        <span asp-validation-for="Endereco" class="text-danger" style="font-size:small;"></span>
+
                     </div>
 
                     <div class="col-lg-6">
                         <label asp-for="Telefone"></label>
                         <input asp-for="Telefone" class="form-control" />
-                        <span asp-validation-for="Telefone" class="text-danger" style="font-size:small;"></span>
+
                     </div>
 
                     <div class="col-lg-6">
                         <label asp-for="Celular"></label>
                         <input asp-for="Celular" class="form-control" />
-                        <span asp-validation-for="Celular" class="text-danger" style="font-size:small;"></span>
                     </div>
 
                     <div class="col-lg-6">
                         <label asp-for="Email"></label>
                         <input asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger" style="font-size:small;"></span>
+
                     </div>
 
-                    <div class="col-lg-6">
-                        <br />
-                        <br />
-                        <input type="submit" value="Cadastrar" class="btn btn-primary" />
-                    </div>
+                    <input type="submit" value="Alterar" class="btn btn-primary" />
                 </form>
 
             </div>
@@ -74,3 +60,4 @@
     </div>
 
 </div>
+

@@ -1,17 +1,27 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using TS.BLL;
 using TS.DAL;
+using TS.DTO.Classes;
 
 
 namespace TS.UI.Controllers
 {
     public class UsuarioController : Controller
     {
+
+        readonly UsuarioBLL _usuarioBll = new UsuarioBLL();
+        readonly UsuarioDAL _usuarioDal = new UsuarioDAL();
+        readonly TipoUsuarioDAL _tipoUsuarioDal = new TipoUsuarioDAL();
+
         // GET: Usuario
         public ActionResult Index()
         {
-            return View();
+            return View(_usuarioDal.GetAll().ToList());
         }
 
         // GET: Usuario/Details/5
@@ -23,24 +33,26 @@ namespace TS.UI.Controllers
         // GET: Usuario/Create
         public ActionResult Create()
         {
+            ViewBag.TipoId = new SelectList(_tipoUsuarioDal.GetAll(), "Id", "Descricao");
+
             return View();
         }
 
         // POST: Usuario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Usuario usuario, int tipoId)
         {
-            try {
-                ViewBag.TipoId = new SelectList(
-                    new Context().TipoUsuarios,
-                    "Id",
-                    "Tipo");
-                
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            try
             {
+                _usuarioBll.Insert(usuario, tipoId);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = ex.InnerException.Message;
+
                 return View();
             }
         }
